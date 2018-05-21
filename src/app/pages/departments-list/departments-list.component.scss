@@ -1,0 +1,52 @@
+.departments-list-container {
+  box-shadow: 3px 3px 5px lightgrey, -3px -3px 5px lightgrey, 3px -3px 5px lightgrey, -3px 3px 5px lightgrey;
+  margin-right: 20px;
+  padding: 20px 30px 20px 0;
+
+  h1, form.department-form {
+    padding-left: 30px;
+  }
+  form {
+    display: flex;
+  }
+  button {
+    background-color: #27CCC0;
+    color: white;
+    height: 30px;
+    width: 75px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: inherit;
+    padding: 0;
+    margin-left: auto;
+    border-radius: 5px;
+  }
+  .item-list {
+    app-department-item {
+      display: flex;
+      margin-bottom: 15px;
+    }
+    app-department-item:first-child {
+      margin-top: 20px;
+    }
+  }
+
+  .employee-container {
+    height: 94vh;
+    overflow: auto;
+    box-shadow: 3px 3px 5px lightgrey, -3px -3px 5px lightgrey, 3px -3px 5px lightgrey, -3px 3px 5px lightgrey;
+
+    app-employee-list {
+      display: block;
+      padding-bottom: 20px;
+    }
+  }
+
+  .selected {
+    border-left: 2px solid #FF2F5A !important;
+    color: white;
+  }
+}
+
+
+

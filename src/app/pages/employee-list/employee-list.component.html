@@ -1,0 +1,7 @@
+<section class="app-employee-list">
+  <h1>Employees of {{selectedDepartment.name}}</h1>
+  <div class="employee-item-container">
+    <app-employee-item *ngFor="let employee of departmentEmployee" [employee]="employee">
+    </app-employee-item>
+  </div>
+</section>

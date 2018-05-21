@@ -1,0 +1,24 @@
+.app-department-item {
+  .title {
+    color: black;
+    cursor: pointer;
+    padding-left: 30px;
+  }
+  .title:hover {
+    border-left: 2px solid #FF2F5A;
+    padding-left: 28px;
+  }
+  .actions {
+    margin-left: auto;
+
+    button {
+      border: 1px solid red;
+      border-radius: 5px;
+      height: 30px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: inherit;
+      color: red;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.app-employee-list {
+  h1{
+    padding-left: 30px;
+  }
+  .employee-item-container {
+    display: inline-block;
+    width: 100%;
+
+    app-employee-item {
+      margin-top: 25px;
+      display: flex;
+    }
+
+
+
+  }
+}
