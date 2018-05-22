@@ -1,6 +1,7 @@
 {
   "name": "departments",
   "version": "0.0.0",
+  "main": "serve.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
