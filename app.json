@@ -1,0 +1,6 @@
+{
+  "name": "Human resources",
+  "description": "University project created by Ivan Telychkin",
+  "repository": "https://github.com/itelichkin/departments",
+  "keywords": ["angular", "node", "express"]
+}
