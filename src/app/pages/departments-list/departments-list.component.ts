@@ -34,13 +34,13 @@ export class DepartmentsListComponent implements OnInit {
   }
 
   async addDepartment() {
-   /* const department: Department = new Department(this.newDepartmentTitle);
-    const newDepartment = await this.mainService.create(department.name);
-    if (newDepartment) {
-      this.departments.push(new Department(newDepartment));
+    const newDepartment = await this.mainService.createDepartment({name: this.newDepartmentTitle});
+    if (newDepartment.saved) {
+      await this.loadDepartments();
     }
-    this.newDepartmentTitle = '';*/
+    this.newDepartmentTitle = '';
   }
+
 
   onSelect(department: Department) {
     this.selectedDepartment = department;
@@ -50,11 +50,9 @@ export class DepartmentsListComponent implements OnInit {
 
   async onDepartmentDelete(department: Department) {
     const deleted = await this.mainService.deleteDepartment(department.id);
-    if (deleted) {
-      this.departments = this.departments.filter(i => i !== department);
-      if (this.selectedDepartment === department) {
-        this.selectedDepartment = null;
-      }
+    if (deleted.removed) {
+      await this.loadDepartments();
+      this.selectedDepartment = null;
     }
   }
 

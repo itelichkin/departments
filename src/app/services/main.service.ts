@@ -80,12 +80,26 @@ export class MainService {
     return result.body ? JSON.parse(result.body) : [];
   }
 
-  create(name: string): Promise<any> {
-    return null;
+  async createDepartment(department: { name: string }): Promise<{ saved: boolean }> {
+    const result = await this.httpClientService.post('/departments', department);
+    return result.body ? JSON.parse(result.body) : false;
   }
 
-  deleteDepartment(id: string): Promise<any> {
-    return null;
+  async deleteDepartment(id: string): Promise<{ removed: boolean }> {
+    const options = {id};
+    const result = await this.httpClientService.delete('/department', options);
+    return result || false;
+  }
+
+  async createEmployee(employee: { name: string }): Promise<any> {
+    const result = await this.httpClientService.post('/employees', employee);
+    return result.body ? JSON.parse(result.body) : false;
+  }
+
+  async deleteEmployee(id: string): Promise<any> {
+    const options = {id};
+    const result = await this.httpClientService.delete('/employee', options);
+    return result.body ? JSON.parse(result.body) : false;
   }
 
 
