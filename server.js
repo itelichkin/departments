@@ -8,7 +8,9 @@ console.log(path.join(__dirname, 'dist'))
 // Serve only the static files form the dist directory
 app.use(express.static(appDir));
 
+
 app.get('/*', function (req, res) {
+  res.send(__dirname)
   res.sendFile('index.html', { root: appDir });
 });
 
