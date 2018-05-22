@@ -19,6 +19,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {DropdownModule, OverlayPanelModule} from 'primeng/primeng';
 import {SharedModule} from 'primeng/shared';
+import { PageDefaultComponent } from './pages/page-default/page-default.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +30,13 @@ import {SharedModule} from 'primeng/shared';
     DepartmentItemComponent,
     EmployeeListComponent,
     EmployeeItemComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PageDefaultComponent,
+    HomePageComponent
   ],
   imports: [
     CommonModule,
+    AppRoutingModule,
     BrowserModule,
     RouterModule,
     FormsModule,
@@ -45,7 +50,7 @@ import {SharedModule} from 'primeng/shared';
     DropdownModule,
     HttpClientModule
   ],
-  providers: [MainService],
+  providers: [MainService, AppComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

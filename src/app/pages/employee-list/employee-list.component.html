@@ -3,5 +3,6 @@
   <div class="employee-item-container">
     <app-employee-item *ngFor="let employee of departmentEmployee" [employee]="employee">
     </app-employee-item>
+    <p class="empty-message" *ngIf="!departmentEmployee.length">There are no employees in this department</p>
   </div>
 </section>

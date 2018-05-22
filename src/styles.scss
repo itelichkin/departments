@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@angular/material/_theming';
 
 * {
   box-sizing: border-box;
@@ -50,7 +52,7 @@ ul {
   vertical-align: middle;
 }*/
 
-input, textarea[placeholder] {
+/*input, textarea[placeholder] {
   font-size: 16px;
   color: #757575;
   background-color: #fafafa;
@@ -59,7 +61,7 @@ input, textarea[placeholder] {
   border: 1px solid lightgray;
   border-radius: 2px;
   outline: none;
-}
+}*/
 
 app-header {
   background: #1976D2;
@@ -68,16 +70,11 @@ app-header {
   padding: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
   color: white;
+  img {
+    width: 50px;
+  }
 }
 
-app-header img {
-  width: 50px;
-}
-
-header h1 {
-  margin: 0 0 0 10px;
-  font-weight: 400;
-}
 
 
 app-employee-item:nth-child(odd) {

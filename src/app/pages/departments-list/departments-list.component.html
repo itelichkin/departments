@@ -1,26 +1,22 @@
-<section fxFlex="100" fxLayout="row" fxLayoutAlign="space-between center">
+<section fxFlex="100" fxLayout="row" fxLayoutAlign="space-between flex-start" class="app-department-list-container">
   <section class="departments-list-container">
     <h1>Departments</h1>
-
-    <mat-form-field>
-      <input matInput type="text" [(ngModel)]="newDepartmentTitle" placeholder="Write department's name" required>
-    </mat-form-field>
-    <button mat-button (click)="addDepartment()">Add</button>
-
-
+    <form class="name-input-container">
+      <mat-form-field>
+        <input matInput type="text" name="department" [(ngModel)]="newDepartmentTitle"
+               placeholder="Write department's name" required>
+      </mat-form-field>
+      <button mat-raised-button (click)="addDepartment()">Add</button>
+    </form>
     <div class="item-list">
       <app-department-item *ngFor="let department of departments" [department]="department"
                            (deleted)="onDepartmentDelete(department)" (click)="onSelect(department)"
                            [class.selected]="department === selectedDepartment">
-
       </app-department-item>
     </div>
-
-
   </section>
   <section class="employee-container" *ngIf="selectedDepartment">
     <app-employee-list [departmentEmployee]="departmentEmployee" [selectedDepartment]="selectedDepartment">
-
     </app-employee-list>
   </section>
 </section>
