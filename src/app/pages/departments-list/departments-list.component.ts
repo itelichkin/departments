@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MainService} from '../../services/main.service';
 import {Department} from '../../models/department.model';
 import {Employee} from '../../models/employee.model';
@@ -13,25 +13,24 @@ export class DepartmentsListComponent implements OnInit {
   employees: Employee[];
   departmentEmployee = [];
   selectedDepartment: Department;
-  newDepartmentTitle: string = '';
+  newDepartmentTitle: string;
 
   constructor(private mainService: MainService) {
   }
 
-  ngOnInit(): void {
-    this.mainService.getDepartments().then(departments => this.departments = departments);
-
-
-    this.mainService.getEmployees().then(employees => this.employees = employees);
+  async ngOnInit() {
+    this.newDepartmentTitle = '';
+    this.departments = await this.mainService.getDepartments();
+    this.employees = await  this.mainService.getEmployees();
   }
 
-  addDepartment() {
-    let department: Department = new Department(this.newDepartmentTitle);
-    this.mainService.create(department.name)
-      .then(department => {
-        this.departments.push(department);
-        this.newDepartmentTitle = '';
-      });
+  async addDepartment() {
+    const department: Department = new Department(this.newDepartmentTitle);
+    const newDepartment = await this.mainService.create(department.name);
+    if (newDepartment) {
+      this.departments.push(new Department(newDepartment));
+    }
+    this.newDepartmentTitle = '';
   }
 
   onSelect(department: Department) {
@@ -40,21 +39,21 @@ export class DepartmentsListComponent implements OnInit {
   }
 
 
-  onDepartmentDelete(department: Department) {
-    this.mainService
-      .deleteDepartment(department.id)
-      .then(() => {
-        this.departments = this.departments.filter(i => i !== department);
-        if (this.selectedDepartment === department) {
-          this.selectedDepartment = null;
-        }
-      });
+  async onDepartmentDelete(department: Department) {
+    const deleted = await this.mainService.deleteDepartment(department.id);
+    if (deleted) {
+      this.departments = this.departments.filter(i => i !== department);
+      if (this.selectedDepartment === department) {
+        this.selectedDepartment = null;
+      }
+    }
   }
-  findEmployees(){
+
+  findEmployees() {
     this.departmentEmployee = [];
-    for(let employee of this.employees){
-      for(let departmentEmployee of employee.count){
-        if(departmentEmployee.department == this.selectedDepartment.id){
+    for (const employee of this.employees) {
+      for (const departmentEmployee of employee.count) {
+        if (departmentEmployee.department === this.selectedDepartment.id) {
           this.departmentEmployee.push(employee);
         }
       }
