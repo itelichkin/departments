@@ -10,7 +10,7 @@ app.use(express.static(appDir));
 
 
 app.get('/*', function (req, res) {
-  res.send(__dirname)
+  res.send(path.join(__dirname, 'dist'))
   res.sendFile('index.html', { root: appDir });
 });
 
