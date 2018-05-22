@@ -1,7 +1,7 @@
-export class Count{
-    department: number;
+export class Count {
+  department: number;
 
-    constructor (department: number){
-        this.department = department;
-    }
+  constructor(department: number) {
+    this.department = department;
+  }
 }

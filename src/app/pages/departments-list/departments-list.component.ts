@@ -20,17 +20,26 @@ export class DepartmentsListComponent implements OnInit {
 
   async ngOnInit() {
     this.newDepartmentTitle = '';
+    await this.loadDepartments();
+    await this.loadEmployees();
+  }
+
+  async loadDepartments() {
     this.departments = await this.mainService.getDepartments();
-    this.employees = await  this.mainService.getEmployees();
+  }
+
+  async loadEmployees() {
+    this.employees = await this.mainService.getEmployees();
+    await this.loadDepartments();
   }
 
   async addDepartment() {
-    const department: Department = new Department(this.newDepartmentTitle);
+   /* const department: Department = new Department(this.newDepartmentTitle);
     const newDepartment = await this.mainService.create(department.name);
     if (newDepartment) {
       this.departments.push(new Department(newDepartment));
     }
-    this.newDepartmentTitle = '';
+    this.newDepartmentTitle = '';*/
   }
 
   onSelect(department: Department) {
@@ -53,7 +62,7 @@ export class DepartmentsListComponent implements OnInit {
     this.departmentEmployee = [];
     for (const employee of this.employees) {
       for (const departmentEmployee of employee.count) {
-        if (departmentEmployee.department === this.selectedDepartment.id) {
+        if (departmentEmployee === this.selectedDepartment.id) {
           this.departmentEmployee.push(employee);
         }
       }

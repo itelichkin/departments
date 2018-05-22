@@ -1,4 +1,5 @@
-import {Injectable} from '@angular/core';
+import {forwardRef, Inject, Injectable} from '@angular/core';
+import {HttpClientService} from './http-client.service';
 
 const data = {
   employees: [
@@ -66,22 +67,24 @@ const data = {
 })
 export class MainService {
 
-  constructor() {
+  constructor(@Inject(forwardRef(() => HttpClientService)) private httpClientService: HttpClientService) {
   }
 
-  getDepartments(): Promise<any> {
-    return Promise.resolve(data.departments);
+  async getDepartments(): Promise<any> {
+    const result = await this.httpClientService.get('/departments');
+    return result.body ? JSON.parse(result.body) : [];
   }
 
-  getEmployees(): Promise<any> {
-    return Promise.resolve(data.employees);
+  async getEmployees(): Promise<any> {
+    const result = await this.httpClientService.get('/employees');
+    return result.body ? JSON.parse(result.body) : [];
   }
 
   create(name: string): Promise<any> {
     return null;
   }
 
-  deleteDepartment(id: number): Promise<any> {
+  deleteDepartment(id: string): Promise<any> {
     return null;
   }
 

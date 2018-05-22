@@ -1,8 +1,9 @@
-export class Department{
-    id: number;
-    name: string;
+export class Department {
+  id: string;
+  name: string;
 
-    constructor (name: string){
-        this.name = name;
-    }
+  constructor(id: string, name: string) {
+    this.id = id;
+    this.name = name;
+  }
 }
