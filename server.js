@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 4200;
 const app = express();
 
 const appDir = path.join(__dirname, 'dist');
-
+console.log(path.join(__dirname, 'dist'))
 // Serve only the static files form the dist directory
 app.use(express.static(appDir));
 
