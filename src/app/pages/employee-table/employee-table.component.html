@@ -1,0 +1,60 @@
+<section class="app-employee-table">
+  <div *ngIf="!isLoading">
+    <div>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Employee name" [(ngModel)]="employeeName">
+      </mat-form-field>
+      <button class="submit-button"
+              matTooltip="Submit"
+              color="accent"
+              mat-raised-button=""
+              (click)="addEmployee()"
+              [disabled]="!employeeName">
+        <mat-icon>check</mat-icon>
+      </button>
+    </div>
+
+
+
+    <mat-table #table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+        <mat-cell *matCellDef="let employee; let i=index">
+           {{i + 1}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.name}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="department">
+        <mat-header-cell *matHeaderCellDef>Department</mat-header-cell>
+        <mat-cell *matCellDef="let employee">
+          <mat-form-field>
+            <mat-select placeholder="Department" [(value)]="employee.count[0]"
+                        (selectionChange)="onDepartmentSelect($event)">
+              <mat-option *ngFor="let department of departments" [value]="department.id">
+                {{ department.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let employee">
+          <button mat-icon-button (click)="removeEmployee(employee)" matTooltip="Remove employee" matTooltipPosition="above">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"
+               [ngClass]="{'selected-row': selectedEmployee?.id === row?.id}"
+               (click)="selectRow(row)"></mat-row>
+    </mat-table>
+    <p *ngIf="employees?.length === 0" class="no-data-confirm">NO RECORDS</p>
+  </div>
+
+
+</section>

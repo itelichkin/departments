@@ -1,0 +1,29 @@
+.app-employee-table {
+  mat-table {
+    width: 100%;
+    .mat-column-id {
+      max-width: 80px;
+    }
+
+    .mat-column-action {
+      max-width: 80px;
+    }
+
+    .selected-row {
+      background: #ef6c00;
+      mat-cell {
+        color: white;
+        mat-icon {
+          color: white;
+        }
+      }
+    }
+    mat-form-field {
+      margin-top: 15px;
+    }
+    mat-row:not(.selected-row):hover {
+      background: #eee;
+      cursor: pointer;
+    }
+  }
+}

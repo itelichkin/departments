@@ -1,7 +1,7 @@
 import {Count} from './count.model';
 
 export class Employee {
-  id: number;
+  id: string;
   name: string;
   count: string[];
 }

@@ -94,10 +94,15 @@ export class MainService {
     return result.body ? JSON.parse(result.body) : false;
   }
 
+  async addEmployeeDepartment(employee: { id: string, name: string , departmentId: string }): Promise<any> {
+    const result = await this.httpClientService.post('/employee/department', employee);
+    return result.body ? JSON.parse(result.body) : false;
+  }
+
   async deleteEmployee(id: string): Promise<any> {
     const options = {id};
     const result = await this.httpClientService.delete('/employee', options);
-    return result.body ? JSON.parse(result.body) : false;
+    return  result || false;
   }
 
 

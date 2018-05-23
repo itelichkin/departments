@@ -25,6 +25,7 @@ import {HomePageComponent} from './pages/home-page/home-page.component';
 import {HttpClientService} from './services/http-client.service';
 import {HeadersService} from './services/headers.service';
 import {ErrorService} from './services/error.service';
+import { EmployeeTableComponent } from './pages/employee-table/employee-table.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {ErrorService} from './services/error.service';
     EmployeeItemComponent,
     PageNotFoundComponent,
     PageDefaultComponent,
-    HomePageComponent
+    HomePageComponent,
+    EmployeeTableComponent
   ],
   imports: [
     CommonModule,
@@ -47,7 +49,6 @@ import {ErrorService} from './services/error.service';
     ReactiveFormsModule,
     FlexLayoutModule,
     BrowserAnimationsModule,
-    FormsModule,
     MaterialModule,
     SharedModule,
     OverlayPanelModule,

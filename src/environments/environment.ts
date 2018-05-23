@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  apiHost:  'https://human-resources-api.herokuapp.com'
-  // apiHost: 'http://localhost:3000'
+ // apiHost:  'https://human-resources-api.herokuapp.com'
+   apiHost: 'http://localhost:3000'
 
 };

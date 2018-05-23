@@ -5,13 +5,14 @@ import {HomePageComponent} from './pages/home-page/home-page.component';
 import {PageNotFoundComponent} from './pages/page-not-found/page-not-found.component';
 import {DepartmentsListComponent} from './pages/departments-list/departments-list.component';
 import {EmployeeListComponent} from './pages/employee-list/employee-list.component';
+import {EmployeeTableComponent} from './pages/employee-table/employee-table.component';
 
 
 export const routes: Routes = [
     {path: '', redirectTo: '/home', pathMatch: 'full'},
     {path: 'home', component: HomePageComponent},
     {path: 'departments', component: DepartmentsListComponent},
-    {path: 'employee', component: EmployeeListComponent},
+    {path: 'employee', component: EmployeeTableComponent},
     {path: '**', component: PageNotFoundComponent}
   ]
 ;
