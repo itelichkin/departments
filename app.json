@@ -1,6 +1,6 @@
 {
-  "name": "Observatory UI: university project",
-  "description": "University project created by Ivan Telychkin",
-  "repository": "https://github.com/itelichkin/observatory",
+  "name": "Departments",
+  "description": "Departments",
+  "repository": "https://github.com/itelichkin/departments",
   "keywords": ["angular", "node", "express"]
 }
