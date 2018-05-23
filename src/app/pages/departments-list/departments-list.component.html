@@ -2,10 +2,10 @@
   <section class="departments-list-container">
     <h1>Departments</h1>
     <form class="name-input-container">
-      <mat-form-field>
+      <mat-input-container>
         <input matInput type="text" name="department" [(ngModel)]="newDepartmentTitle"
                placeholder="Write department's name" required>
-      </mat-form-field>
+      </mat-input-container>
       <button mat-raised-button (click)="addDepartment()">Add</button>
     </form>
     <div class="item-list">

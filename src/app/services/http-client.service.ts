@@ -9,9 +9,7 @@ export interface HttpRequestOptions {
   data?;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class HttpClientService {
 
   constructor(private httpClient: HttpClient,

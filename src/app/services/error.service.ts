@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, Subject} from 'rxjs/Rx';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ErrorService {
 
   private _onError: Subject<any> = new Subject<any>();

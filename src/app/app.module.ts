@@ -22,6 +22,9 @@ import {DropdownModule, OverlayPanelModule} from 'primeng/primeng';
 import {SharedModule} from 'primeng/shared';
 import {PageDefaultComponent} from './pages/page-default/page-default.component';
 import {HomePageComponent} from './pages/home-page/home-page.component';
+import {HttpClientService} from './services/http-client.service';
+import {HeadersService} from './services/headers.service';
+import {ErrorService} from './services/error.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,7 @@ import {HomePageComponent} from './pages/home-page/home-page.component';
     DropdownModule,
     HttpClientModule
   ],
-  providers: [MainService, AppComponent],
+  providers: [MainService, AppComponent, HttpClientService, HeadersService, ErrorService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -62,9 +62,7 @@ const data = {
 };
 
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MainService {
 
   constructor(@Inject(forwardRef(() => HttpClientService)) private httpClientService: HttpClientService) {
